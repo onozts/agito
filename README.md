@@ -1,2 +1,0 @@
-# agito
-kamen rider agito
