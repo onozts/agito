@@ -8,5 +8,16 @@
 <img src="favicon.png" width="500" height="800" />
 <img src="favicon.png" width="500" height="800" />
 <img src="favicon.png" width="500" height="800" />
-</body>
+ <script type="text/javascript">
+        $(document).ready(function(){wx.ready(function () {
+
+                    var shareData = {
+                        title: sharetitle,
+                        desc: '建设社会治理共同体',
+                        link: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/index.html',
+                        imgUrl: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/images/icon.jpg'
+                    };
+                    wx.onMenuShareAppMessage(shareData);
+                    wx.onMenuShareTimeline(shareData);
+                });</body>
 </html>
