@@ -9,18 +9,17 @@
 <img src="favicon.png" width="500" height="800" />
 <img src="favicon.png" width="500" height="800" />
  <script type="text/javascript">
-            wx.ready(function() {
                 wx.ready(function () {
 
                     var shareData = {
 
-                        title: sharetitle,
+                        title: '"我完成了“青年大学习”网上主题课第七季第七期的课程，你也来试试吧"',
 
                         desc: '建设社会治理共同体',
 
                         link: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/index.html',
 
-                        imgUrl: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/images/icon.jpg'
+                        imgUrl: 'https://raw.githubusercontent.com/onozts/agito/master/favicon.png'
 
                     };
 
@@ -36,12 +35,6 @@
                 desc: shareDesc, // 分享描述
                 link: shareUrl, // 分享链接
                 imgUrl: 'https://raw.githubusercontent.com/onozts/agito/master/favicon.png', // 分享图标
-                success: function() {
-                  // 用户确认分享后执行的回调函数
-                },
-                cancel: function() {
-                  // 用户取消分享后执行的回调函数
-                }
               });
               
                 }
