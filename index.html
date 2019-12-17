@@ -9,6 +9,29 @@
 <img src="favicon.png" />
  <script type="text/javascript">
                 wx.ready(function () {
+   public class WXShareModel
+    {
+        public string appId { get; set; }
+        public string nonceStr { get; set; }
+        public long timestamp { get; set; }
+
+        public string signature { get; set; }
+
+        public string ticket { get; set; }
+        public string url { get; set; }
+
+        public void MakeSign()
+        {
+             var string1Builder = new StringBuilder();
+             string1Builder.Append("jsapi_ticket=").Append(ticket).Append("&")
+                          .Append("noncestr=").Append(nonceStr).Append("&")
+                          .Append("timestamp=").Append(timestamp).Append("&")
+                          .Append("url=").Append(url.IndexOf("#") >= 0 ? url.Substring(0, url.IndexOf("#")) : url);
+            var string1 = string1Builder.ToString();
+            signature = Util.Sha1(string1, Encoding.Default);
+
+        }
+    }
 
                     var shareData = {
 
@@ -16,7 +39,7 @@
 
                         desc: '建设社会治理共同体',
 
-                        link: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/index.html',
+                        link: 'https://github.com/onozts/agito/blob/master/index.html',
 
                         imgUrl: 'https://raw.githubusercontent.com/onozts/agito/master/favicon.png'
 
@@ -36,5 +59,6 @@
                 imgUrl: 'https://raw.githubusercontent.com/onozts/agito/master/favicon.png', // 分享图标
               });
     </script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
 </body>
 </html>
