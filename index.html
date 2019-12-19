@@ -8,8 +8,30 @@
 <img src="favicon.png" width="500" height="800" />
 <img src="favicon.png" width="500" height="800" />
 <img src="favicon.png" width="500" height="800" />
- <script type="text/javascript">
+<a href="javascript:;" οnclick="document.getElementById('mcover').style.display='block';">分享到朋友圈</a>
+
+<div id="mcover" οnclick="document.getElementById('mcover').style.display='';" style="display: none;">
+<img src="favicon.png">
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
-function onBridgeReady() { WeixinJSBridge.call('hideOptionMenu'); } if (typeof WeixinJSBridge == "undefined") { if (document.addEventListener) { document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false); } else if (document.attachEvent) { document.attachEvent('WeixinJSBridgeReady', onBridgeReady); document.attachEvent('onWeixinJSBridgeReady', onBridgeReady); } } else { onBridgeReady(); }
-    </script>
+window.share_config = {
+     "share": {
+        "imgUrl": "favicon.png",//分享图，默认当相对路径处理，所以使用绝对路径的的话，“http://”协议前缀必须在。
+        "desc" : "你对页面的描述",//摘要,如果分享到朋友圈的话，不显示摘要。
+        "title" : '分享卡片的标题',//分享卡片标题
+        "link": window.location.href,//分享出去后的链接，这里可以将链接设置为另一个页面。
+        "success":function(){//分享成功后的回调函数
+        },
+        'cancel': function () { 
+            // 用户取消分享后执行的回调函数
+        }
+    }
+};  
+    wx.ready(function () {
+    wx.onMenuShareAppMessage(share_config.share);//分享给好友
+    wx.onMenuShareTimeline(share_config.share);//分享到朋友圈
+    wx.onMenuShareQQ(share_config.share);//分享给手机QQ
+});
+</script>
 </html>
