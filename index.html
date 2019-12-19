@@ -17,11 +17,30 @@
 <img src="favicon.png">
 </div>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script>
+<script type="text/javascript">	
+
+	wx.onMenuShareTimeline({
+
+		imgUrl: 'favi.png'
+
+	});
+
+	wx.config({
+
+		debug: false,
+
+		appId: 'wx30b9bfd6e0063ff9', // 必填，公众号的唯一标识
+  timestamp: json.timestamp, // 必填，生成签名的时间戳
+  nonceStr: json.noncestr, // 必填，生成签名的随机串
+  signature: json.signature, // 必填，签名，见附录1
+  jsApiList: ['onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareTimeline', 'onMenuShareWeibo', 'onMenuShareQZone']
+	  });
+
+</script>
 window.share_config = {
      "share": {
        <div style="display:none"><img src='1.png' /></div>//img为要显示的缩略图
-        "imgUrl": "favicon.png",//分享图，默认当相对路径处理，所以使用绝对路径的的话，“http://”协议前缀必须在。
+        "imgUrl": "favi.png",//分享图，默认当相对路径处理，所以使用绝对路径的的话，“http://”协议前缀必须在。
         "desc" : "你对页面的描述",//摘要,如果分享到朋友圈的话，不显示摘要。
         "title" : '分享卡片的标题',//分享卡片标题
         "link": window.location.href,//分享出去后的链接，这里可以将链接设置为另一个页面。
