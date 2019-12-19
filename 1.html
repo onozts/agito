@@ -1,0 +1,732 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <title>我完成了“青年大学习”网上主题课第七季第八期的课程，你也来试试吧</title>
+<link rel="shortcut icon" href="favicons.png"/>
+<img src="favicon.png" width="500" height="800" />
+<img src="favicon.png" width="500" height="800" />
+<img src="favicon.png" width="500" height="800" />
+<script type="text/javascript" language="javascript">
+        function GetQueryValue(queryName) {
+            var query = decodeURI(window.location.search.substring(1));
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+              var pair = vars[i].split("=");
+              if (pair[0] == queryName) { return pair[1]; }
+            }
+            return null;
+        }
+        var queryVal=GetQueryValue('t');
+        //平台、设备和操作系统
+        var system = {
+        win: false,
+        mac: false,
+        xll: false,
+        ipad: false
+        };
+        //检测平台
+        var p = navigator.platform;
+        system.win = p.indexOf("Win") == 0;
+        system.mac = p.indexOf("Mac") == 0;
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+        system.ipad = (navigator.userAgent.match(/iPad/i) != null) ? true : false;
+        //跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面
+        if (system.win || system.mac || system.xll || system.ipad) {
+            //alert("PC");
+            if(queryVal!=1){
+                window.location.href="index.html";            
+            }
+        } else {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+              //alert("微信浏览器");
+            } else {
+              //alert("手机");
+            }
+        }
+    </script>
+    <script type="text/javascript">
+      // 分享简介
+      $().ready(function() {
+        var shareTitle = '“青年大学习”第七季第八期来啦！';
+        var shareDesc = '建设社会治理共同体';
+        var shareUrl = window.location.href.split('#')[0];
+        var shareImg = 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/images/icon.jpg';
+
+        shareUrls = encodeURIComponent(shareUrl);
+
+        $.ajax({
+          url: 'http://h5.cyol.com/special/weixin/getShareSignature.php',
+          type: 'post',
+          data: {
+            url: shareUrl
+          },
+          dataType: 'json',
+          success: function(res) {
+            var json = res.data;
+            var title =
+              wx.config({
+                debug: false,
+                appId: 'wx30b9bfd6e0063ff9', // 必填，公众号的唯一标识
+                timestamp: json.timestamp, // 必填，生成签名的时间戳
+                nonceStr: json.noncestr, // 必填，生成签名的随机串
+                signature: json.signature, // 必填，签名，见附录1
+                jsApiList: ['onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareTimeline', 'onMenuShareWeibo', 'onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+              });
+
+            //===
+            wx.ready(function() {
+              //微信好友
+              wx.onMenuShareAppMessage({
+                title: shareTitle, // 分享标题
+                desc: shareDesc, // 分享描述
+                link: shareUrl, // 分享链接
+                imgUrl: shareImg, // 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function() {
+                  // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                  // 用户取消分享后执行的回调函数
+                }
+              });
+              //朋友圈
+              wx.onMenuShareTimeline({
+                title: shareTitle, // 分享标题
+                desc: shareDesc, // 分享描述
+                link: shareUrl, // 分享链接
+                imgUrl: shareImg, // 分享图标
+                success: function() {
+                  // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                  // 用户取消分享后执行的回调函数
+                }
+              });
+              //分享到QQ
+              wx.onMenuShareQQ({
+                title: shareTitle, // 分享标题
+                desc: shareDesc, // 分享描述
+                link: shareUrl, // 分享链接
+                imgUrl: shareImg, // 分享图标
+                success: function() {
+                  // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                  // 用户取消分享后执行的回调函数
+                }
+              });
+              //分享到腾讯微博
+              wx.onMenuShareWeibo({
+                title: shareTitle, // 分享标题
+                desc: shareDesc, // 分享描述
+                link: shareUrl, // 分享链接
+                imgUrl: shareImg, // 分享图标
+                success: function() {
+                  // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                  // 用户取消分享后执行的回调函数
+                }
+              });
+              //分享到QQ空间
+              wx.onMenuShareQZone({
+                title: shareTitle, // 分享标题
+                desc: shareDesc, // 分享描述
+                link: shareUrl, // 分享链接
+                imgUrl: shareImg, // 分享图标
+                success: function() {
+                  // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                  // 用户取消分享后执行的回调函数
+                }
+              });
+            });
+          }
+        });
+      });
+      <script type="text/javascript">
+        $(document).ready(function(){
+            var h=window.innerHeight;
+            var w=window.innerWidth;
+            var video1 = document.getElementById('Bvideo');
+            var video2 = document.getElementById('Cvideo');
+            var rightAudio=document.getElementById("rightAudio");
+            var wrongAudio=document.getElementById("wrongAudio");
+            video1.load();
+
+            //适配
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if(isAndroid||isiOS) {
+            var touchstart1="touchstart";
+            var touchmove1="touchmove";
+            var touchend1="touchend";
+            var tap1="touchstart"
+            }else{
+            var touchstart1="mousedown";
+            var touchmove1="mousemove";
+            var touchend1="mouseup";
+            var tap1="click"
+            }
+            var s=a=b=c=score=0;
+            /*答题*/
+            $(".section1 .w1,.section1 .w2,.section1 .w3,.section1 .w4").on("click",function(){
+                $('.section1 .w1').css('background-image','url("images/p1.1.png")');
+                $('.section1 .w2').css('background-image','url("images/p1.2.png")');
+                $('.section1 .w3').css('background-image','url("images/p1.3.png")');
+                $('.section1 .w4').css('background-image','url("images/p1.4.png")');
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                $(this).css('background-image','url("images/p1.'+b+'.png")');
+            });
+            $('.section1 .w9').on('click',function(){
+                disable(1);
+                $('.section1 .w'+b).show();
+                if(a==1){
+                    s++;
+                    rightAudio.play();
+                    $('.section1 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section1 .w8').show();
+                    wrongAudio.play();
+                    $('.section1 .w10').css('background-image','url("images/w1.gif")');
+                }
+                video1.currentTime = 120.81;
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section1').fadeOut();
+                    $('#Bvideo').addClass('topindex');
+                    video1.play();
+                }, 1000);
+            });
+            $(".section2 .w1,.section2 .w2,.section2 .w3,.section2 .w4").on("click",function(){
+                $('.section2 .w1').css('background-image','url("images/p2.1.png")');
+                $('.section2 .w2').css('background-image','url("images/p2.2.png")');
+                $('.section2 .w3').css('background-image','url("images/p2.3.png")');
+                $('.section2 .w4').css('background-image','url("images/p2.4.png")');
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                $(this).css('background-image','url("images/p2.'+b+'.png")');
+            });
+            $('.section2 .w9').on('click',function(){
+                disable(2);
+                $('.section2 .w'+b).show();
+                if(a==1){
+                    s++;
+                    rightAudio.play();
+                    $('.section2 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section2 .w7').show();
+                    wrongAudio.play();
+                    $('.section2 .w10').css('background-image','url("images/w1.gif")');
+                }
+                video1.currentTime = 159.01;
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section2').fadeOut();
+                    $('#Bvideo').addClass('topindex');
+                    video1.play();
+                }, 1000);
+            });
+            var left1=$(".drag1").offset().left;
+            var top1=$(".drag1").offset().top;
+            var move=false;
+            var ary=[0,0,0,0,0,0];
+            var data1={
+                "pre":[["13%","56%"],["40%","56%"],["67%","56%"],["27%","66%"],["54%","66%"]],
+                "coll1":[0.166,0.236,0.236],//top
+                "coll2":[0.361,0.083,0.611],//left
+                "coll_height":0.066,
+                "coll_width":0.20,
+                "new1":[["36.1%","16.6%"],["8.3%","23.6%"],["61.1%","23.6%"]],
+                "ary2":[-1,-1,-1],
+            }
+            //var right_data1=[0,1,2];
+            var y111=[0,0,0,0,0,0];
+            function in_array(search,array){ for(var i in array){ if(array[i]==search){ return true; } } return false; }
+            $(".drag1_click").on('click',function(){
+                if(data1.ary2[0]==0 && data1.ary2[1]==4 && data1.ary2[2]==1){
+                    s++;
+                    rightAudio.play();
+                    $('.drag1 .w0').css('background-image','url("images/r1.gif")');
+                }else{
+                    wrongAudio.play();
+                    $('.drag1 .w0').css('background-image','url("images/w1.gif")');
+                    $('.drag1 .w1').show();
+                }
+                video1.currentTime = 206.81;
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.drag1').fadeOut();
+                    $('#Bvideo').addClass('topindex');
+                    video1.play();
+                }, 1000);
+            });
+            $(".drag1_li").on(touchstart1,function (ev){
+                ary=[0,0,0,0,0,0];
+                y111[0]=$(this).offset().left;
+                y111[1]=$(this).offset().top;
+                var that=$(this);
+                li_index=$(this).index();
+                ary[0]=(event.clientX||event.changedTouches[0].clientX)-y111[0];
+                ary[1]=(event.clientY||event.changedTouches[0].clientY)-y111[1];
+                $(document).on(touchmove1,function(ev){
+                    if(move==false){
+                        move=true;
+                    };
+                    ary[2]=(event.clientX||event.changedTouches[0].clientX)-ary[0];
+                    ary[3]=(event.clientY||event.changedTouches[0].clientY)-ary[1];
+                    ary[4]=(event.clientX||event.changedTouches[0].clientX)-left1;
+                    ary[5]=(event.clientY||event.changedTouches[0].clientY)-top1;
+                    that.css({left:ary[2],top:ary[3],"z-index":10});
+                });
+                return false;
+            })
+            $(".drag1_li").on(touchend1,function(){
+                if(move){
+                    move=false;
+                }else{
+                    move=false;
+                    return
+                };
+                var mmm=false;
+                for(var i=0;i<5;i++){
+                    if(isCollision(ary[4],ary[5],data1.coll2[i]*w,data1.coll1[i]*h,data1.coll_width*w,data1.coll_height*h)==true){
+                        mmm=true;
+                        drag1_li_index=i;
+                        break;
+                    }
+                }
+                if(mmm){
+                    if($(this).attr("data1")!=-2){
+                        var da=$(this).attr("data1");
+                        data1.ary2[da]=-1;
+                    }
+                    if(data1.ary2[drag1_li_index]==-1){
+                        data1.ary2[drag1_li_index]=$(this).attr('data');
+                    }else{
+                        $(".drag1_li").eq(data1.ary2[drag1_li_index]).css({"z-index":0,left:data1.pre[data1.ary2[drag1_li_index]][0],top:data1.pre[data1.ary2[drag1_li_index]][1]}).attr("data1",-2)
+                        data1.ary2[drag1_li_index]=-1;
+                        data1.ary2[drag1_li_index]=$(this).attr('data');
+                    }
+                    $(this).css({"z-index":0,left:data1.new1[drag1_li_index][0],top:data1.new1[drag1_li_index][1]});
+                    $(this).attr("data1",drag1_li_index);
+                    console.log(data1.ary2)
+                }else {
+                    if($(this).attr("data1")!=-2){
+                        var da=$(this).attr("data1");
+                        data1.ary2[da]=-1;
+                    }else{
+                        data1.ary2[li_index]=-1; 
+                    }
+                    $(".drag1_li").eq(li_index).css({"z-index":0,left:data1.pre[li_index][0],top:data1.pre[li_index][1]}).attr("data1",-2);
+                }
+                $(document).off(touchmove1);
+                return false;
+            });
+            function isCollision( x1,  y1,  x2,  y2, w, h) {
+                if (x1 >= x2 && x1 <= x2 + w && y1 >= y2 && y1 <= y2 + h) {
+                    return true;
+                }else{
+                  return false;
+                }
+            }
+            
+            
+            $('.section3 .w1').on('click',function(){
+                $('#Cvideo').show();
+                $('.section3').removeClass('topindex1').css('opacity','0');
+                $('.section4').show().addClass('ani');
+                video2.play();
+            });
+            $('.section4 .w0').on('click',function(){
+                $('.section3').addClass('topindex1');
+                video2.pause();
+                $('.section4,#Cvideo').hide();
+            });
+
+            /*视频控制*/ 
+            $(".start_btn").on("click",function(){
+                wd_paramtracker("_wdxid=000000000000000000000000000000000000000000")
+                $('#Bvideo').show();
+                $('.section0').removeClass('topindex').css('opacity','0');
+                //video1.currentTime = 240.01;
+                video1.play();
+            });
+            var Vtimer = setInterval(function(){
+                var vtime = video1.currentTime;
+                if(vtime>119.4&&vtime<=119.6){
+                    video1.pause();
+                    $('#Bvideo').removeClass('topindex');
+                    $('.section1').addClass('topindex1');
+                }else if(vtime>157.4&&vtime<=157.6){
+                    video1.pause();
+                    $('#Bvideo').removeClass('topindex');
+                    $('.section2').addClass('topindex1');
+                }else if(vtime>205.7&&vtime<=205.9){
+                    video1.pause();
+                    $('#Bvideo').removeClass('topindex');
+                    $('.drag1').addClass('topindex1');
+                }else if(video1.ended){
+                    if(isAndroid){
+                        $('#Bvideo').fadeOut();
+                    }else{
+                        $('#Bvideo').removeClass('topindex');
+                    }
+                    $('.section3').addClass('topindex1');
+                    clearInterval(Vtimer);
+                }
+                //console.log(vtime)
+                },100);    
+            var s=a=b=c=score=0;
+            /*课后题*/
+            $('.section3 .w0').on('click',function(){
+                $('.section6,.section7,.section8,.section9,.section10,.section11,.section12,.section13').removeClass('topindex1');
+                $('.section6').addClass('topindex1');
+                setTimeout(function(){
+                    $('.section3').hide();
+                },500)
+            });
+            function set(i){
+                $('.section'+i+' .w1').css('background-image','url("images/k'+(i-5)+'.1.png")');
+                $('.section'+i+' .w2').css('background-image','url("images/k'+(i-5)+'.2.png")');
+                $('.section'+i+' .w3').css('background-image','url("images/k'+(i-5)+'.3.png")');
+                $('.section'+i+' .w4').css('background-image','url("images/k'+(i-5)+'.4.png")');
+            }
+            function disable(i){
+                $(".section"+i+" .w1,.section"+i+" .w2,.section"+i+" .w3,.section"+i+" .w4,.section"+i+" .w0").addClass("disable");
+            }
+            //课后作业
+            $(".section6 .w1,.section6 .w2,.section6 .w3,.section6 .w4").on("click",function(){
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                c = $(this).attr('data-c');
+                if(c==1){
+                    $(this).attr('data-c','-1');
+                    score = score+Number(a);
+                    $('.section6 .w'+(b-4)).css('background-image','url("images/k1.'+b+'.png")');
+                }else if(c==-1){
+                    $(this).attr('data-c','1');
+                    score = score-Number(a);
+                    $('.section6 .w'+(b-4)).css('background-image','url("images/k1.'+(b-4)+'.png")');
+                }
+            });
+            $('.section6 .w0').on('click',function(){
+                $('.section6 .w5,.section6 .w8').show();
+                disable(6);
+                if(score==2){
+                    s++;
+                    rightAudio.play();
+                    $('.section6 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section6 .w5,.section6 .w6,.section6 .w7,.section6 .w8').show();
+                    wrongAudio.play();
+                    $('.section6 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section7').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section7 .w1,.section7 .w2,.section7 .w3,.section7 .w4").on("click",function(){
+                set(7)
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                $(this).css('background-image','url("images/k2.'+b+'.png")');
+            });
+            $('.section7 .w0').on('click',function(){
+                disable(7);
+                $('.section7 .w'+b).show();
+                if(a==1){
+                    s++;
+                    rightAudio.play();
+                    $('.section7 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section7 .w6').show();
+                    wrongAudio.play();
+                    $('.section7 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section8').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section8 .w1,.section8 .w2,.section8 .w3,.section8 .w4").on("click",function(){
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                c = $(this).attr('data-c');
+                if(c==1){
+                    $(this).attr('data-c','-1');
+                    score = score+Number(a);
+                    $('.section8 .w'+(b-4)).css('background-image','url("images/k3.'+b+'.png")');
+                }else if(c==-1){
+                    $(this).attr('data-c','1');
+                    score = score-Number(a);
+                    $('.section8 .w'+(b-4)).css('background-image','url("images/k3.'+(b-4)+'.png")');
+                }
+            });
+            $('.section8 .w0').on('click',function(){
+                $('.section8 .w6,.section8 .w7,.section8 .w8').show();
+                disable(8);
+                if(score==3){
+                    s++;
+                    rightAudio.play();
+                    $('.section8 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section8 .w5,.section8 .w6,.section8 .w7,.section8 .w8').show();
+                    wrongAudio.play();
+                    $('.section8 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section9').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section9 .w1,.section9 .w2,.section9 .w3,.section9 .w4").on("click",function(){
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                c = $(this).attr('data-c');
+                if(c==1){
+                    $(this).attr('data-c','-1');
+                    score = score+Number(a);
+                    $('.section9 .w'+(b-4)).css('background-image','url("images/k4.'+b+'.png")');
+                }else if(c==-1){
+                    $(this).attr('data-c','1');
+                    score = score-Number(a);
+                    $('.section9 .w'+(b-4)).css('background-image','url("images/k4.'+(b-4)+'.png")');
+                }
+            });
+            $('.section9 .w0').on('click',function(){
+                $('.section9 .w5,.section9 .w6,.section9 .w8').show();
+                disable(9);
+                if(score==3){
+                    s++;
+                    rightAudio.play();
+                    $('.section9 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section9 .w5,.section9 .w6,.section9 .w7,.section9 .w8').show();
+                    wrongAudio.play();
+                    $('.section9 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section10').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section10 .w1,.section10 .w2,.section10 .w3,.section10 .w4").on("click",function(){
+                set(10)
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                $(this).css('background-image','url("images/k5.'+b+'.png")');
+            });
+            $('.section10 .w0').on('click',function(){
+                disable(10);
+                $('.section10 .w'+b).show();
+                if(a==1){
+                    s++;
+                    rightAudio.play();
+                    $('.section10 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section10 .w7').show();
+                    wrongAudio.play();
+                    $('.section10 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section11').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section11 .w1,.section11 .w2,.section11 .w3,.section11 .w4").on("click",function(){
+                set(11)
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                $(this).css('background-image','url("images/k6.'+b+'.png")');
+            });
+            $('.section11 .w0').on('click',function(){
+                disable(11);
+                $('.section11 .w'+b).show();
+                if(a==1){
+                    s++;
+                    rightAudio.play();
+                    $('.section11 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section11 .w6').show();
+                    wrongAudio.play();
+                    $('.section11 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section12').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section12 .w1,.section12 .w2,.section12 .w3,.section12 .w4").on("click",function(){
+                set(12)
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                $(this).css('background-image','url("images/k7.'+b+'.png")');
+            });
+            $('.section12 .w0').on('click',function(){
+                disable(12);
+                $('.section12 .w'+b).show();
+                if(a==1){
+                    s++;
+                    rightAudio.play();
+                    $('.section12 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section12 .w8').show();
+                    wrongAudio.play();
+                    $('.section12 .w10').css('background-image','url("images/w1.gif")');
+                }
+                setTimeout(function() {
+                    a=b=c=score=0;
+                    $('.section13').addClass('topindex1');
+                }, 1000);
+            });
+            $(".section13 .w1,.section13 .w2,.section13 .w3,.section13 .w4").on("click",function(){
+                a = $(this).attr('data-a');
+                b = $(this).attr('data-b');
+                c = $(this).attr('data-c');
+                if(c==1){
+                    $(this).attr('data-c','-1');
+                    score = score+Number(a);
+                    $('.section13 .w'+(b-4)).css('background-image','url("images/k8.'+b+'.png")');
+                }else if(c==-1){
+                    $(this).attr('data-c','1');
+                    score = score-Number(a);
+                    $('.section13 .w'+(b-4)).css('background-image','url("images/k8.'+(b-4)+'.png")');
+                }
+            });
+            $('.section13 .w0').on('click',function(){
+                $('.section13 .w5,.section13 .w8').show();
+                disable(13);
+                if(score==2){
+                    s++;
+                    rightAudio.play();
+                    $('.section13 .w10').css('background-image','url("images/r1.gif")');
+                }else{
+                    $('.section13 .w5,.section13 .w6,.section13 .w7,.section13 .w8').show();
+                    wrongAudio.play();
+                    $('.section13 .w10').css('background-image','url("images/w1.gif")');
+                }
+                if(s==8){
+                    sharetitle = '满分！我完成了“青年大学习”网上主题团课第七季第八期的课程，你也来试试吧';
+                }else{
+                    sharetitle = '我完成了“青年大学习”网上主题团课第七季第八期的课程，你也来试试吧';
+                }
+                wx.ready(function () {
+                    var shareData = {
+                        title: sharetitle,
+                        desc: '建设社会治理共同体',
+                        link: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/index.html',
+                        imgUrl: 'http://h5.cyol.com/special/daxuexi/daxuexi7i8/images/icon.jpg'
+                    };
+                    wx.onMenuShareAppMessage(shareData);
+                    wx.onMenuShareTimeline(shareData);
+                });
+                setTimeout(function() {
+                    a=b=c=s=score=0;
+                    $('.section3').show().addClass('topindex1');
+                    $('.section6,.section7,.section8,.section9,.section10,.section11,.section12,.section13').removeClass('topindex1');
+                    $(".section6 .w5,.section6 .w6,.section6 .w7,.section6 .w8").hide();
+                    $(".section7 .w5,.section7 .w6,.section7 .w7,.section7 .w8").hide();
+                    $(".section8 .w5,.section8 .w6,.section8 .w7,.section8 .w8").hide();
+                    $(".section9 .w5,.section9 .w6,.section9 .w7,.section9 .w8").hide();
+                    $(".section10 .w5,.section10 .w6,.section10 .w7,.section10 .w8").hide();
+                    $(".section11 .w5,.section11 .w6,.section11 .w7,.section11 .w8").hide();
+                    $(".section12 .w5,.section12 .w6,.section12 .w7,.section12 .w8").hide();
+                    $(".section13 .w5,.section13 .w6,.section13 .w7,.section13 .w8").hide();
+                    $('.section6 .w10,.section7 .w10,.section8 .w10,.section9 .w10,.section10 .w10,.section11 .w10,.section12 .w10,.section13 .w10').css('background-image','url("images/tuanbao.gif")');
+                    $('.section6 .w0,.section7 .w0,.section8 .w0,.section9 .w0,.section10 .w0,.section11 .w0,.section12 .w0,.section13 .w0').removeClass('disable');
+                    mmm=false;
+                    for(var i=1;i<=4;i++){
+                        $('.section6 .w'+i).css('background-image','url("images/k1.'+i+'.png")').removeClass("disable").attr('data-c','1');
+                        $('.section7 .w'+i).css('background-image','url("images/k2.'+i+'.png")').removeClass("disable");
+                        $('.section8 .w'+i).css('background-image','url("images/k3.'+i+'.png")').removeClass("disable").attr('data-c','1');
+                        $('.section9 .w'+i).css('background-image','url("images/k4.'+i+'.png")').removeClass("disable").attr('data-c','1');
+                        $('.section10 .w'+i).css('background-image','url("images/k5.'+i+'.png")').removeClass("disable");
+                        $('.section11 .w'+i).css('background-image','url("images/k6.'+i+'.png")').removeClass("disable");
+                        $('.section12 .w'+i).css('background-image','url("images/k7.'+i+'.png")').removeClass("disable");
+                        $('.section13 .w'+i).css('background-image','url("images/k8.'+i+'.png")').removeClass("disable").attr('data-c','1');
+                    }
+                }, 1000);
+            });
+            
+            
+            $('.sign_btn').click(function(){
+                window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx32719110b88140d3&redirect_uri=http%3A%2F%2Fh5.cyol.com%2Fspecial%2Fdaxuexi%2Fdaxuexi7i8%2Fdata.php&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+            });
+        });
+        </script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            function GetQueryValue(queryName) {
+                var query = decodeURI(window.location.search.substring(1));
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                  var pair = vars[i].split("=");
+                  if (pair[0] == queryName) { return pair[1]; }
+                }
+                return null;
+            }
+            var queryVal1=GetQueryValue('z');
+            if(queryVal1==200){
+                $('.section0 .start_btn').show();
+            }else{
+                var db = openDatabase("myDB","1.0","Test DB",1024*10);
+                db.transaction(function (tx) {
+                    tx.executeSql("SELECT * FROM SESSION order by rowid desc limit 0,1", [], function (tx, results) {
+                        if(results){
+                            $('.section0 .start_btn').show();
+                        }else{
+                            $('.section0 .start_btn').hide();
+                            $('.section0 .sign_btn').show();
+                        }
+                    }, function (transaction,errmsg){
+                        $('.section0 .start_btn').hide();
+                       $('.section0 .sign_btn').show();
+                    });
+                });
+            }
+            //$('.section0 .start_btn').show();
+        });
+        </script>
+                <div style="display:none">
+            <script type="text/javascript">document.write(unescape("%3Cscript src='http://cl2.webterren.com/webdig.js?z=21' type='text/javascript'%3E%3C/script%3E"));</script>
+            <script type="text/javascript">wd_paramtracker("_wdxid=000000000000000000000000000000000000000000")</script>
+        </div>
+        <div id="allmap" style="display:none;"></div>
+        <script>
+        var _mtac = {};
+        (function() {
+            var mta = document.createElement("script");
+            mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500705649");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+        </script>
+        <script src="https://p.wts.xinwen.cn/dot-wts/spm.js"></script>
+        <script>
+            spm.config({
+                siteId: 'zm1009-001', // 此处填写该网站对应的网站标识（即SPM a段） 例如'zmXXXX-001'
+                additionalInfo: {
+                    targetID: "H5_7dxx8", // 此处填写稿件ID
+                    organization: 'zm1009', // 此处填写机构ID
+                    category: 'event',
+                    action: 'comeIn',
+                },
+            });
+            window.onbeforeunload = function () {
+                // 上报离开事件
+                spm.push({ category: 'event', action: 'leave' });
+            };
+        </script>
+    </body>
+</html>
